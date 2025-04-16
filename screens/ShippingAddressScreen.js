@@ -1,19 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Button } from 'react-native';
 import { useAddress } from '../contexts/AddressContext';  // Sử dụng AddressContext
+import { EvilIcons } from '@expo/vector-icons';
 
 export default function ShippingAddressScreen({ navigation }) {
     const { addresses } = useAddress();  // Lấy danh sách địa chỉ từ AddressContext
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Shipping Address</Text>
+            <Text style={styles.header}>Địa chỉ đặt hàng</Text>
             <ScrollView>
                 {/* Hiển thị danh sách các địa chỉ */}
                 {addresses.map((address) => (
                     <View key={address.id} style={styles.addressCard}>
                         <Text style={styles.addressName}>{address.name}</Text>
                         <Text style={styles.addressText}>{address.address}</Text>
+                        {/* Thêm icon bút chì để chỉnh sửa */}
+                        <TouchableOpacity onPress={() => handleEditAddress(address)} style={styles.editIcon}>
+                            <EvilIcons name="pencil" size={30} color="#888" />  {/* Icon bút chì */}
+                        </TouchableOpacity>
                         {address.isDefault && <Text style={styles.defaultText}>Default Address</Text>}
                     </View>
                 ))}
@@ -24,7 +29,7 @@ export default function ShippingAddressScreen({ navigation }) {
                 style={styles.addButton}
                 onPress={() => navigation.navigate('AddAddress')} // Điều hướng đến AddAddressScreen
             >
-                <Text style={styles.addText}>+ Add New Address</Text>
+                <Text style={styles.addText}>+ Thêm địa chỉ mới</Text>
             </TouchableOpacity>
         </View>
     );
@@ -72,5 +77,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
+    },
+    editIcon: {
+        position: 'absolute',  // Đặt icon vào vị trí cố định trong card
+        right: 15,  // Căn phải
+        top: '50%',  // Căn trên
+        color: '#888'
     },
 });
