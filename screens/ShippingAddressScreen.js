@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { useAddress } from '../contexts/AddressContext';  // Sử dụng AddressContext
 
 export default function ShippingAddressScreen({ navigation }) {
-    // State lưu trữ các địa chỉ
-    const [addresses, setAddresses] = useState([]);
+    const { addresses } = useAddress();  // Lấy danh sách địa chỉ từ AddressContext
 
     return (
         <View style={styles.container}>
@@ -14,14 +14,12 @@ export default function ShippingAddressScreen({ navigation }) {
                     <View key={address.id} style={styles.addressCard}>
                         <Text style={styles.addressName}>{address.name}</Text>
                         <Text style={styles.addressText}>{address.address}</Text>
-                        {address.isDefault && (
-                            <Text style={styles.defaultText}>Default Address</Text>
-                        )}
+                        {address.isDefault && <Text style={styles.defaultText}>Default Address</Text>}
                     </View>
                 ))}
             </ScrollView>
 
-            {/* Nút để điều hướng tới màn hình thêm địa chỉ */}
+            {/* Nút điều hướng tới màn hình thêm địa chỉ */}
             <TouchableOpacity
                 style={styles.addButton}
                 onPress={() => navigation.navigate('AddAddress')} // Điều hướng đến AddAddressScreen

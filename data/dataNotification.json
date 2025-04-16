@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "message": "Your order #123456789 has been confirmed",
+        "status": "New",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "isHot": false
+    },
+    {
+        "id": "2",
+        "message": "Your order #123456789 has been canceled",
+        "status": "Canceled",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "isHot": false
+    },
+    {
+        "id": "3",
+        "message": "Your order #123456789 has been shipped successfully",
+        "status": "Shipped",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "isHot": true
+    }
+]

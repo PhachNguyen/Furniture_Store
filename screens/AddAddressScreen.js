@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Switch, TouchableOpacity, Alert } from 'react-native';
+import { useAddress } from '../contexts/AddressContext'; // Import AddressContext
 
 export default function AddAddressScreen({ navigation }) {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [isDefault, setIsDefault] = useState(false);
+
+    const { addAddress } = useAddress(); // Lấy hàm addAddress từ context
 
     // Hàm để lưu địa chỉ
     const handleSaveAddress = () => {
@@ -21,8 +24,8 @@ export default function AddAddressScreen({ navigation }) {
             isDefault
         };
 
-        // Thực hiện hành động lưu (ví dụ: lưu vào danh sách địa chỉ hoặc backend)
-        console.log('Địa chỉ mới:', newAddress);
+        // Thêm địa chỉ mới vào danh sách địa chỉ
+        addAddress(newAddress);
 
         // Điều hướng về màn hình danh sách địa chỉ (giả sử là "ShippingAddressScreen")
         navigation.goBack(); // Hoặc điều hướng đến màn hình địa chỉ của bạn

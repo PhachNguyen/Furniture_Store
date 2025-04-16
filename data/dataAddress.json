@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": "Nguyễn Văn A",
+        "address": "Số 1, phố Nguyễn Trãi, Thanh Xuân, Hà Nội",
+        "isDefault": true
+    },
+    {
+        "id": "2",
+        "name": "Trần Thị B",
+        "address": "Số 2, phố Lê Duẩn, Hoàn Kiếm, Hà Nội",
+        "isDefault": false
+    },
+    {
+        "id": "3",
+        "name": "Phạm Minh C",
+        "address": "Số 5, phố Giảng Võ, Ba Đình, Hà Nội",
+        "isDefault": false
+    },
+    {
+        "id": "4",
+        "name": "Lê Thị D",
+        "address": "Số 3, phố Trần Duy Hưng, Cầu Giấy, Hà Nội",
+        "isDefault": false
+    },
+    {
+        "id": "5",
+        "name": "Vũ Văn E",
+        "address": "Số 10, phố Phan Đình Phùng, Tây Hồ, Hà Nội",
+        "isDefault": false
+    }
+]
