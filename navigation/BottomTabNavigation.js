@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
-import BookmarkScreen from '../screens/BookmarkScreen';
+import FavoriteScreen from '../screens/FavoriteScreen';
 import NotificationScreen from '../screens/NotificationScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import StackNavigator from './StackNavigator';
 
+import StackNavigator from './StackNavigator';
+import HomeStackNavigator from './HomeStackNavigator';
 const Tab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
@@ -24,29 +24,27 @@ function BottomTabNavigator() {
                 tabBarInactiveTintColor: 'gray',
             }}
         >
+            {/* ✅ Tab Home dùng Stack riêng */}
             <Tab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={HomeStackNavigator}
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="home" size={size} color={color} />
                     ),
-                }}
-                listeners={{
-                    tabPress: () => {
-                        handleOrderSuccess(); // Gọi khi đặt hàng thành công
-                    }
+                    headerShown: false,
                 }}
             />
             <Tab.Screen
-                name="Bookmark"
-                component={BookmarkScreen}
+                name="FavoriteScreen"
+                component={FavoriteScreen}
                 options={{
                     tabBarLabel: 'Bookmark',
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="bookmark" size={size} color={color} />
                     ),
+                    headerShown: false,
                 }}
             />
             <Tab.Screen

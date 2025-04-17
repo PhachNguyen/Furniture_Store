@@ -3,7 +3,7 @@
         "id": "1",
         "name": "Black Simple Lamp",
         "price": "$12.00",
-        "image": "Anh_den_hoc.jpg" // Lưu chỉ tên file mà không phải là đường dẫn đầy đủ
+        "image": "Anh_den_hoc.jpg"
     },
     {
         "id": "2",
